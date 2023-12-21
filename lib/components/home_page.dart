@@ -52,6 +52,11 @@ class _MainPage extends State<MainPage> {
               margin: const EdgeInsets.only(
                   top: 10.0, left: 20, right: 20, bottom: 10.0),
               padding: const EdgeInsets.all(10.0),
+              // decoration: const BoxDecoration(
+              //     image: DecorationImage(
+              //       image: AssetImage("images/bg_image.png"),
+              //     )
+              //     ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -60,17 +65,16 @@ class _MainPage extends State<MainPage> {
                       height: MediaQuery.of(context).size.height * 0.28,
                       padding: const EdgeInsets.all(12.0),
                       decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(20.0),
-                        ),
-                        boxShadow: const [
-                          BoxShadow(
-                              spreadRadius: 0,
-                              blurRadius: 1,
-                              blurStyle: BlurStyle.solid)
-                        ],
-                        color: Theme.of(context).colorScheme.primary
-                      ),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(20.0),
+                          ),
+                          boxShadow: const [
+                            BoxShadow(
+                                spreadRadius: 0,
+                                blurRadius: 1,
+                                blurStyle: BlurStyle.solid)
+                          ],
+                          color: Theme.of(context).colorScheme.primary),
                       child: GestureDetector(
                         onTap: () {
                           toUpdateProfile(data['id']);
@@ -108,9 +112,10 @@ class _MainPage extends State<MainPage> {
                               padding: const EdgeInsets.all(10.0),
                               child: Text(
                                 data['name'] ?? 'Undefined',
-                                style:  TextStyle(
+                                style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color: Theme.of(context).colorScheme.surface,
+                                    color:
+                                        Theme.of(context).colorScheme.surface,
                                     decorationStyle: TextDecorationStyle.solid),
                               ),
                             )
@@ -239,7 +244,6 @@ class _CardItem extends State<CardItem> {
                   onPressed: () {
                     deletePost();
                   },
-                 
                   child: const Text("Remove"))
             ],
           )

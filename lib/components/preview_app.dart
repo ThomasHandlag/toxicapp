@@ -21,9 +21,10 @@ class _PreviewApp extends State<PreviewApp> {
     )
   ];
   CarouselController carouselController = CarouselController();
+
   @override
   Widget build(BuildContext context) => Scaffold(
-        backgroundColor: const Color.fromARGB(255, 255, 255, 0),
+        backgroundColor: Theme.of(context).colorScheme.background,
         bottomNavigationBar: Container(
           padding: const EdgeInsets.all(15.0),
           margin: const EdgeInsets.only(bottom: 20.0),
@@ -66,8 +67,11 @@ class _PreviewApp extends State<PreviewApp> {
 
 class Slide extends StatefulWidget {
   const Slide({super.key, required this.text, required this.start});
+
   final String text;
+
   const Slide.first({super.key, required this.text, required this.start});
+
   final bool start;
 
   @override
@@ -115,6 +119,8 @@ class _Slide extends State<Slide> with SingleTickerProviderStateMixin {
       child: Container(
         alignment: Alignment.center,
         margin: const EdgeInsets.only(top: 20.0),
+        decoration: const BoxDecoration(
+            image: DecorationImage(image: AssetImage("images/prev.png"))),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -125,8 +131,12 @@ class _Slide extends State<Slide> with SingleTickerProviderStateMixin {
               ),
               Text(
                 widget.text,
-                style:
-                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.onSurface,
+                  backgroundColor: Theme.of(context).colorScheme.surface,
+                ),
                 textAlign: TextAlign.center,
               ),
               widget.start
@@ -140,6 +150,9 @@ class _Slide extends State<Slide> with SingleTickerProviderStateMixin {
                                   builder: (context) => const SignScreen()),
                             );
                           },
+                          style: const ButtonStyle(
+                              foregroundColor: MaterialStatePropertyAll(
+                                  Colors.purpleAccent)),
                           child: const Text("Get start")),
                     )
                   : Container(),
@@ -162,7 +175,7 @@ class CustomCarouselIndicator extends StatelessWidget {
     required this.currentIndex,
     required this.onIndexChanged,
     this.dotColor = Colors.grey,
-    this.dotActiveColor = Colors.blue,
+    this.dotActiveColor = Colors.purple,
   });
 
   @override
@@ -183,7 +196,7 @@ class CustomCarouselIndicator extends StatelessWidget {
                 height: 10.0,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: currentIndex == index ? Colors.blue : Colors.grey,
+                  color: currentIndex == index ? Colors.purple : Colors.grey,
                 ),
               ),
             ),

@@ -39,15 +39,17 @@ class _SignScreen extends State<SignScreen>
           SignUpTab()
         ],
       ),
-      appBar: TabBar(
-        tabs: const [
-          Tab(
-            text: "Sign In",
-            icon: Icon(Icons.login),
-          ),
-          Tab(text: "Sign up", icon: Icon(Icons.app_registration))
-        ],
-        controller: _tabController,
+      appBar: AppBar(
+        bottom: TabBar(
+          tabs: const [
+            Tab(
+              text: "Sign In",
+              icon: Icon(Icons.login),
+            ),
+            Tab(text: "Sign up", icon: Icon(Icons.app_registration))
+          ],
+          controller: _tabController,
+        ),
       ),
     );
   }

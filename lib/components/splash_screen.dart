@@ -35,11 +35,11 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 252, 47),
+      backgroundColor: Theme.of(context).colorScheme.onSurface,
       body: Center(
         child: FadeTransition(
           opacity: animation,
-          child: Image.asset("images/ic_launch.png", width: 100)
+          child: Image.asset("images/ic_launch.png", width: 100, color: Colors.yellow,)
         ),
       ),
     );

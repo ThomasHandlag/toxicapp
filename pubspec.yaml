@@ -69,8 +69,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - images\ic_launch.png
-    - images\pre_app_one.png
+    - images\prev.png
     - images\pre_app_two.png
+    - images\bg_image.png
     - db\app_db.db
 
   # An image asset can refer to one or more resolution-specific "variants", see
